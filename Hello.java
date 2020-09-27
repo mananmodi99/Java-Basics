@@ -1,7 +1,7 @@
 public class Hello {
 
     public static void main(String[] args) {
-        System.out.println("MananM0108");
+        System.out .println('A' - 'A');
     }
     
 }
