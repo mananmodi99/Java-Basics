@@ -1,3 +1,4 @@
+#Create a Package Array before Running
 package Arrays;
 //Array must be sorted
 //Complexity O(log2(n))
