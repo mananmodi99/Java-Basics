@@ -1,3 +1,4 @@
+#Create a Package Array before Running
 //import java.util.Scanner;
 //
 //public class SubArray {
