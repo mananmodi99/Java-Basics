@@ -1,0 +1,50 @@
+import java.util.*;
+public class Main {
+	public static int[] SumOfArr(int[] hi, int[] lo,int more, int less){
+		int sum_array[] = new int[more];
+		int carry=0, sum=0, i = more-1;
+		for(int j = less-1; j>=0; j--){
+			sum = hi[i] + lo[j] + carry;
+			sum_array[i] = sum%10;
+			carry = sum/10; 
+			i--;
+		}
+		while(i>=0){
+			sum = hi[i] + carry;
+			sum_array[i] = sum%10;
+			carry = sum/10;
+			i--;
+		}
+		if(carry>0){
+			int[] final_arr = new int[more+1];
+			final_arr[0] = carry;
+			for(int j=0;j<more;j++){
+				final_arr[j+1] = sum_array[j];
+			}
+			return final_arr;
+		}
+		return sum_array;
+	}
+
+	public static int[] Compare(int[] one, int[] two, int n, int m){
+		if(n>=m)
+			return SumOfArr(one, two, n, m);
+		else 
+			return SumOfArr(two, one, m, n);
+	}
+    public static void main (String args[]) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int one[] = new int[n]; 
+		for(int i = 0; i<n; i++)
+			one[i] = sc.nextInt();
+		int m = sc.nextInt();
+		int two[] = new int[m];
+		for(int i = 0; i<m; i++)
+			two[i] = sc.nextInt();
+		int[] sum = Compare(one, two, n, m);
+		for(int i=0; i<sum.length; i++)
+			System.out.print(sum[i] + ", ");
+		System.out.print("END");
+    }
+}
