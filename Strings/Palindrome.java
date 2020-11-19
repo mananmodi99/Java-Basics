@@ -5,12 +5,18 @@ public class Palindrome {
         Scanner sc = new Scanner(System.in);
         String s = sc.next().toLowerCase();
         boolean isPalindrome = false;
-        String reverse = "";
-        for(int i=s.length()-1; i>=0; i--){
-            reverse = reverse + s.charAt(i);
-        }
-        if(s.equals(reverse)){
-            isPalindrome = true;
+
+        int left = 0, right = s.length()-1;
+        while(left<=right){
+            if(s.charAt(left) == s.charAt(right)){
+                isPalindrome = true;
+                left++;
+                right--;
+            }
+            else{
+                isPalindrome = false;
+                break;
+            }
         }
         System.out.println(isPalindrome);
     }
